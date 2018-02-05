@@ -23,5 +23,6 @@ Some blocks need to be hit more often than others:
 - [ ] Randomized initial velocity
 - [ ] Improved paddle physics
 - [ ] Power Ups (speed, paddle size, ...)
+- [ ] Incorporate Matter.js
 
 ## [play here!](https://lvttl.github.io/Block-Breaker)
