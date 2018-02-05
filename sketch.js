@@ -86,6 +86,27 @@ class Block {
         //console.log("width:", width, "height:", height);
         return {x1: this.x-this.width/2, x2: this.x+this.width/2, y1: this.y-this.height/2, y2: this.y+this.height/2, xm: this.x, ym: this.y, w: this.width, h: this.height};
     }
+
+    hit () {
+        console.log(col.dx, col.dy);
+            if (col.dx !== 0) {
+                b.invertVx();
+            }
+            if (col.dy !== 0) {
+                b.invertVy();
+            }
+            if (col.dx === 0 && col.dy === 0) {
+                errorScreen();
+            }
+
+            if (abs(b.vx) < 1 || abs(b.vy) < 1) {
+                console.log(b.vx, b.vy);
+                errorScreen();
+            }
+            //noLoop();
+            blocks = blocks.filter(b => this !== b);
+            console.log(blocks.length)
+    }
 }
 
 let r = new Racket(50, 10);
@@ -120,24 +141,7 @@ function draw() {
     blocks.forEach(block => {
         col = checkCollision(block.hitbox(), b.hitbox());
         if (col !== 0) {
-            console.log(col.dx, col.dy);
-            if (col.dx !== 0) {
-                b.invertVx();
-            }
-            if (col.dy !== 0) {
-                b.invertVy();
-            }
-            if (col.dx === 0 && col.dy === 0) {
-                errorScreen();
-            }
-
-            if (abs(b.vx) < 1 || abs(b.vy) < 1) {
-                console.log(b.vx, b.vy);
-                errorScreen();
-            }
-            //noLoop();
-            blocks = blocks.filter(b => block !== b);
-            console.log(blocks.length)
+            block.hit();
         } else {
             block.draw();
         }
