@@ -71,12 +71,16 @@ class Block {
         this.y = y;
         this.width = w;
         this.height = h;
+        this.damageValue = 2;
+        this.red = 0; 
+        this.green = 0;
+        this.blue = 255;
     }
 
     draw() {
         push();
         noStroke();
-        fill(255, 0, 0);
+        fill(this.red, this.green, this.blue);
         rectMode(CENTER);
         rect(this.x, this.y, this.width, this.height);
         pop();
@@ -104,8 +108,14 @@ class Block {
                 errorScreen();
             }
             //noLoop();
-            blocks = blocks.filter(b => this !== b);
+            this.damageValue--;
+            if (this.damageValue == 1) {
+                this.blue = 0;
+                this.red = 255;
+            } else if (this.damageValue < 1) {
+                blocks = blocks.filter(b => this !== b);
             console.log(blocks.length)
+            }
     }
 }
 
