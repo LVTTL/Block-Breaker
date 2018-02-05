@@ -144,11 +144,11 @@ let blocks = [];
 
 function setup() {
     createCanvas(500, 500);
-    offset = 100;
+    offset = 50;
     xStep = 100;
     yStep = 30;
-    for (let i = 0; i < 4; i++) {
-        for (let j = 0; j < 6; j++) {
+    for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < 7; j++) {
             blocks.push(new Block(offset+i*xStep, offset+j*yStep, 60, 20));
         }
     }
@@ -160,7 +160,7 @@ function draw() {
     r.draw();
     collision = checkCollision(r.hitbox(), b.hitbox());
     if (collision !== 0) {
-        console.log("collision detected, ", collision);
+        // console.log("collision detected, ", collision);
         b.invertVy();
         if (b.vx > 0 && col.dx < 0 ||b.vx < 0 && col.dx > 0) {
             b.invertVx();
@@ -188,8 +188,8 @@ function checkCollision(a, b) {
     //if (b.x2 > a.x1 && b.x2 < a.x2 && (b.y2 > a.y1 && b.y2 < a.y2 || b.y2 > a.y1 && b.y2 < a.y2) 
     // || b.x1 > a.x1 && b.x1 < a.x2 && (b.y2 > a.y1 && b.y2 < a.y2 || b.y2 > a.y1 && b.y2 < a.y2)) {
     if (b.ym+b.h/2 >= a.ym-a.h/2 && b.ym-b.h/2 <= a.ym+a.h/2 && b.xm+b.w/2 >= a.xm-a.w/2 && b.xm-b.w/2 <= a.xm+a.w/2) {
-        console.log("a.x1", a.x1, "a.x2", a.x2, "b.x1", b.x1, "b.x2", b.x2);
-        console.log("a.y1", a.y1, "a.y2", a.y2, "b.y1", b.y1, "b.y2", b.y2);
+        // console.log("a.x1", a.x1, "a.x2", a.x2, "b.x1", b.x1, "b.x2", b.x2);
+        // console.log("a.y1", a.y1, "a.y2", a.y2, "b.y1", b.y1, "b.y2", b.y2);
         let dx = b.xm - a.xm;
         let dy = b.ym - a.ym;
 
