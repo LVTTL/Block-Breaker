@@ -2,6 +2,8 @@
 const WIDTH = 500;
 const HEIGHT = 500;
 
+var score = 0;
+
 class Racket {
     constructor (width, height) {
         this.width = width;
@@ -109,6 +111,7 @@ class Block {
             }
             //noLoop();
             this.damageValue--;
+            score++;
             if (this.damageValue == 1) {
                 this.blue = 0;
                 this.red = 255;
@@ -157,6 +160,7 @@ function draw() {
         }
     });
     b.draw();
+    document.getElementById("score").innerText = score;
     if (blocks.length === 0) {
         winningScreen();
     }
