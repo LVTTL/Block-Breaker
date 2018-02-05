@@ -74,7 +74,7 @@ class Block {
         this.y = y;
         this.width = w;
         this.height = h;
-        this.damageValue = 2;
+        this.damageValue = random([1, 2, 3]);
         this.red = 0; 
         this.green = 0;
         this.blue = 0;
@@ -85,7 +85,7 @@ class Block {
             this.red = 0; 
             this.green = 255;
             this.blue = 0;
-        } else if (this.damageValue === 2) {
+        } else if (this.damageValue == 2) {
             this.red = 0; 
             this.green = 0;
             this.blue = 255;
@@ -99,6 +99,10 @@ class Block {
         fill(this.red, this.green, this.blue);
         rectMode(CENTER);
         rect(this.x, this.y, this.width, this.height);
+        // textSize(15);
+        // textAlign(CENTER);
+        // fill(0, 255, 0);
+        // text(this.damageValue, this.x, this.y);
         pop();
     }
 
