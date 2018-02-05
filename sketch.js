@@ -128,12 +128,12 @@ function draw() {
                 b.invertVy();
             }
             if (col.dx === 0 && col.dy === 0) {
-                noLoop();
+                errorScreen();
             }
 
             if (abs(b.vx) < 1 || abs(b.vy) < 1) {
                 console.log(b.vx, b.vy);
-                noLoop();
+                errorScreen();
             }
             //noLoop();
             blocks = blocks.filter(b => block !== b);
@@ -189,5 +189,15 @@ function gameOverScreen() {
     textAlign(CENTER);
     fill(255, 0, 0);
     text("Game Over!", width/2, height/2);
+    noLoop();
+}
+
+
+function errorScreen() {
+    background(120, 120, 120);
+    textSize(75);
+    textAlign(CENTER);
+    fill(255, 0, 0);
+    text("Error", width/2, height/2);
     noLoop();
 }
