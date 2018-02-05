@@ -3,6 +3,7 @@ const WIDTH = 500;
 const HEIGHT = 500;
 
 var score = 0;
+var paused = false;
 
 class Racket {
     constructor (width, height) {
@@ -161,6 +162,9 @@ function draw() {
     });
     b.draw();
     document.getElementById("score").innerText = score;
+    if (paused) {
+        pauseScreen();
+    }
     if (blocks.length === 0) {
         winningScreen();
     }
@@ -227,4 +231,26 @@ function errorScreen() {
     fill(255, 0, 0);
     text("Error", width/2, height/2);
     noLoop();
+}
+
+function pauseScreen() {
+    push();
+    textSize(75);
+    textAlign(CENTER);
+    fill(0, 255, 0);
+    text("Paused", width/2, height/2);
+    pop();
+}
+
+function keyPressed() {
+    if (keyCode === 32) {
+       if (paused) {
+           loop();
+           console.log("unpaused");
+       } else {
+           noLoop();
+           console.log("paused");           
+       }
+       paused = !paused;
+    }
 }
