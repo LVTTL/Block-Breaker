@@ -77,10 +77,23 @@ class Block {
         this.damageValue = 2;
         this.red = 0; 
         this.green = 0;
-        this.blue = 255;
+        this.blue = 0;
     }
 
     draw() {
+        if (this.damageValue > 2) {
+            this.red = 0; 
+            this.green = 255;
+            this.blue = 0;
+        } else if (this.damageValue === 2) {
+            this.red = 0; 
+            this.green = 0;
+            this.blue = 255;
+        } else {
+            this.red = 255;
+            this.green = 0;
+            this.blue = 0;
+        }
         push();
         noStroke();
         fill(this.red, this.green, this.blue);
@@ -113,10 +126,7 @@ class Block {
             //noLoop();
             this.damageValue--;
             score++;
-            if (this.damageValue == 1) {
-                this.blue = 0;
-                this.red = 255;
-            } else if (this.damageValue < 1) {
+            if (this.damageValue < 1) {
                 blocks = blocks.filter(b => this !== b);
             console.log(blocks.length)
             }
