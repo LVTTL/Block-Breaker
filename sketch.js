@@ -74,18 +74,18 @@ class Block {
         this.y = y;
         this.width = w;
         this.height = h;
-        this.damageValue = random([1, 2, 3]);
+        this.health = random([1, 2, 3]);
         this.red = 0; 
         this.green = 0;
         this.blue = 0;
     }
 
     draw() {
-        if (this.damageValue > 2) {
+        if (this.health > 2) {
             this.red = 0; 
             this.green = 255;
             this.blue = 0;
-        } else if (this.damageValue == 2) {
+        } else if (this.health == 2) {
             this.red = 0; 
             this.green = 0;
             this.blue = 255;
@@ -128,9 +128,9 @@ class Block {
                 errorScreen();
             }
             //noLoop();
-            this.damageValue--;
+            this.health--;
             score++;
-            if (this.damageValue < 1) {
+            if (this.health < 1) {
                 blocks = blocks.filter(b => this !== b);
             console.log(blocks.length)
             }
