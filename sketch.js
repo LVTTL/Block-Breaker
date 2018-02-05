@@ -48,7 +48,7 @@ class Ball {
             this.vy = -this.vy;
         }
         else if (this.y > HEIGHT-this.height/2) {
-            noLoop();
+            gameOverScreen();
         }
     }
 
@@ -183,3 +183,11 @@ function checkCollision(a, b) {
     return 0;
 }
 
+function gameOverScreen() {
+    background(120, 120, 120);
+    textSize(75);
+    textAlign(CENTER);
+    fill(255, 0, 0);
+    text("Game Over!", width/2, height/2);
+    noLoop();
+}
