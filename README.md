@@ -11,7 +11,7 @@ Destroy all the block to finish the game and don't let the ball touch the floor!
 
 ## Blocks
 
-THe blocks are spwaned in a grid pattern with randomized colors.
+The blocks are spwaned in a grid pattern with randomized colors.
 
 Some blocks need to be hit more often than others:
 - Red: once
