@@ -144,7 +144,7 @@ function draw() {
     });
     b.draw();
     if (blocks.length === 0) {
-        noLoop();
+        winningScreen();
     }
 }
 
@@ -189,6 +189,15 @@ function gameOverScreen() {
     textAlign(CENTER);
     fill(255, 0, 0);
     text("Game Over!", width/2, height/2);
+    noLoop();
+}
+
+function winningScreen() {
+    background(120, 120, 120);
+    textSize(75);
+    textAlign(CENTER);
+    fill(0, 255, 0);
+    text("Congrats!", width/2, height/2);
     noLoop();
 }
 
