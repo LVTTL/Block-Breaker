@@ -5,11 +5,6 @@ const HEIGHT = 500;
 var score = 0;
 var paused = false;
 
-
-
-
-
-
 let r = new Racket(50, 10);
 let b = new Ball(200, 400, 3, 2, 10, 10);
 
@@ -91,8 +86,6 @@ function checkCollision(a, b) {
     }
     return 0;
 }
-
-
 
 function keyPressed() {
     if (keyCode === 32) {
